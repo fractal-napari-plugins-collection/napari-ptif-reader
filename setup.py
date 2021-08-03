@@ -22,7 +22,7 @@ setup(
     package_dir={'': 'src'},
     license='MIT',
     description=(
-        'Plugins for reading multi-scale/multi-dimensional images/shapes into Napari.'
+        'Plugin for reading multi-scale (pyramidal) TIFF files into Napari.'
     ),
     long_description=open('README.md').read(),
     python_requires='>=3.6',
