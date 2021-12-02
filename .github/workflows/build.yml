@@ -4,8 +4,8 @@ on: [push]
 
 jobs:
   build:
-    runs-on: self-hosted
-    container: python:${{ matrix.python-version }}-ubuntu18.04-basic
+    runs-on: ubuntu-18.04
+    container: exactlab/python:${{ matrix.python-version }}-ubuntu-18.04
     strategy:
       max-parallel: 1
       matrix:
@@ -25,6 +25,7 @@ jobs:
         if [ ! -e /usr/bin/pip ]; then ln -s /usr/local/bin/pip${{ matrix.python-version }} /usr/bin/pip ; fi
     - name: Install dependencies
       run: |
+        apt install -y libtiff5-dev
         pip install -r requirements.txt
     - name: Run static analyses
       run: |
