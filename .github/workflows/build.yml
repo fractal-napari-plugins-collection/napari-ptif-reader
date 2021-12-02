@@ -25,6 +25,7 @@ jobs:
         if [ ! -e /usr/bin/pip ]; then ln -s /usr/local/bin/pip${{ matrix.python-version }} /usr/bin/pip ; fi
     - name: Install dependencies
       run: |
+        apt install -y libtiff5-dev
         pip install -r requirements.txt
     - name: Run static analyses
       run: |
